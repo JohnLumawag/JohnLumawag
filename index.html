@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love </title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+    padding: 25px 12px;
+    overflow-x: hidden;
+}
+
+.container {
+    background: rgba(255,255,255,0.94);
+    padding: 30px 23px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 2;
+    margin: 30px 0;
+}
+
+.heart {
+    font-size: 65px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+h1 {
+    color: #ff1493;
+}
+
+.message {
+    color: #713c52;
+    line-height: 1.8;
+    text-align: left;
+    font-size: 15px;
+}
+
+button {
+    background: #ff1493;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: #d60070;
+}
+
+#letter {
+    display: none;
+}
+
+.floating {
+    position: fixed;
+    bottom: -30px;
+    animation: float 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.footer {
+    color: #ff1493;
+    font-style: italic;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>My Love 💗</h1>
+
+    <p style="color:#a04b70;">
+        A message from my heart, just for you.
+    </p>
+
+    <button onclick="openLetter()" id="openBtn">
+        Open My Letter 💌
+    </button>
+
+    <div id="letter">
+
+        <hr style="border:1px solid pink;">
+
+        <div class="message">
+
+        My love, I know that every relationship has its own struggles, misunderstandings, and difficult days. I know we won't always be okay, and there will be times when things get complicated. But please, don't ignore me or avoid me whenever things get difficult. If something is wrong, talk to me. If you're upset, tell me. I'd rather understand your silence than be left wondering what I did wrong.
+
+        <br><br>
+
+        I don't expect us to be perfect. I just want us to be honest with each other, even when the truth is difficult to say. Please don't make me feel like I'm the only one trying to fix things. I want us to face our struggles together, not separately.
+
+        <br><br>
+
+        I love you, and I'm willing to understand, listen, and work things out with you. I don't need everything to be perfect. I just need communication, honesty, effort, and reassurance. Even on our hardest days, I hope we never forget why we chose each other. ❤️
+
+        </div>
+
+        <div class="footer">
+            With all my love, always. ❤️
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function openLetter() {
+    document.getElementById("letter").style.display = "block";
+    document.getElementById("openBtn").style.display = "none";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
